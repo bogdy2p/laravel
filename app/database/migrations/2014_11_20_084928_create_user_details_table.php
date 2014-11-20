@@ -17,7 +17,6 @@ class CreateUserDetailsTable extends Migration {
             $table->integer('user_id');
             $table->string('detail_type');
             $table->string('detail');
-
             $table->timestamps();
         });
     }

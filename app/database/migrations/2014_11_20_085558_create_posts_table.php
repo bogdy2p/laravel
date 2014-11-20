@@ -5,30 +5,29 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePostsTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::table('posts', function(Blueprint $table)
-		{
-			//
-		});
-	}
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up() {
+        Schema::create('posts', function(Blueprint $table) {
+            
+            $table->increments('id');
+            $table->string('title');
+            $table->string('content');
+            $table->integer('user_id');
+            $table->timestamps();
+        });
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::table('posts', function(Blueprint $table)
-		{
-			//
-		});
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down() {
+        Schema::drop('posts');
+    }
 
 }

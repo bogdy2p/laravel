@@ -5,30 +5,28 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTodoListTable extends Migration {
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::table('todo_list', function(Blueprint $table)
-		{
-			//
-		});
-	}
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up() {
+        Schema::create('todo_list', function(Blueprint $table) {
+            
+            $table->increments('id');
+            $table->string('name');
+            $table->string('colour');
+            $table->timestamps();
+        });
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
-		Schema::table('todo_list', function(Blueprint $table)
-		{
-			//
-		});
-	}
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down() {
+        Schema::drop('todo_list');
+    }
 
 }
