@@ -12,7 +12,7 @@ class CreatePrivateMessageTable extends Migration {
      */
     public function up() {
         Schema::create('private_message', function(Blueprint $table) {
-            
+
             $table->increments('id');
             $table->text('content');
             $table->integer('sent_from');
