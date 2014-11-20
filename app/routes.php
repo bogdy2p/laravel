@@ -22,3 +22,5 @@ Route::get('admin', function(){
    return 'Admin page'; 
     
 })->before('auth');
+
+Route::resource('users','UsersController');
