@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration {
             $table->string('creation_ip');
             $table->string('last_ip_accessed');
             $table->integer('total_logins');
-            $table->string('account_picture')->unique();
+            $table->string('account_picture');
             $table->timestamps();
         });
     }

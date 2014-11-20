@@ -35,15 +35,10 @@ class UsersController extends \BaseController {
 	public function store()
 	{
 		
-            
-            return Input::get('username');
-            
             $user = new User;
             
             $user->username = Input::get('username');
             $user->password = Hash::make(Input::get('password'));
-            
-            die($user);
             $user->save();
             
             return Redirect::route('users.index');
