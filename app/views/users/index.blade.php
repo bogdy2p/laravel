@@ -1,4 +1,4 @@
-@extends('layouts.default')
+@extends('templates.default')
 
 @section('content')
 <h1> All Users</h1>

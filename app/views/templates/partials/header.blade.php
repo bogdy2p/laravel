@@ -4,15 +4,11 @@
     
     <head>
         <meta charset="utf-8">
+        <title>CHANGEME | UserGroups</title>
+        
+        
         @yield('header')
     </head>
     
     <body>
-        
-        @yield('content')
-           
-        @yield('footer')
-        
-    </body>
-    
-</html>
+               @yield('content') 

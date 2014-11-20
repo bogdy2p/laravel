@@ -1,1 +1,1 @@
-THIS IS USERS SHOW INDIVIDUAL USER
+@extends('templates.default')
