@@ -9,7 +9,7 @@
 
     {{ Form::label('username','Username: ') }}
 
-    {{ Form::text('text','username') }}
+    {{ Form::text('username') }}
 
 </div>
 

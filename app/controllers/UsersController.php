@@ -35,8 +35,19 @@ class UsersController extends \BaseController {
 	public function store()
 	{
 		
-            return ('You clicked create a new user ! ');
-//
+            
+            return Input::get('username');
+            
+            $user = new User;
+            
+            $user->username = Input::get('username');
+            $user->password = Hash::make(Input::get('password'));
+            
+            die($user);
+            $user->save();
+            
+            return Redirect::route('users.index');
+            
 	}
 
 
@@ -46,7 +57,7 @@ class UsersController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($username)
 	{
 		$user = User::whereUsername($username)->first();
                 
