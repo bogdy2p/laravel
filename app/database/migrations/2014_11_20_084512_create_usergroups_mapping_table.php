@@ -12,6 +12,7 @@ class CreateUsergroupsMappingTable extends Migration {
      */
     public function up() {
         Schema::create('usergroups', function(Blueprint $table) {
+
             $table->increments('id');
             $table->string('user_id');
             $table->string('group_id');
