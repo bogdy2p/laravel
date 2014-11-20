@@ -9,7 +9,10 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+            
+                $users = User::all();
+		return View::make('users.index',['users'=> $users]);
+                
 	}
 
 
@@ -20,7 +23,7 @@ class UsersController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		return View::make('users.create');
 	}
 
 
@@ -31,7 +34,9 @@ class UsersController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		
+            return ('You clicked create a new user ! ');
+//
 	}
 
 
@@ -43,7 +48,9 @@ class UsersController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		$user = User::whereUsername($username)->first();
+                
+                return View::make('users.show', ['user' => $user]);
 	}
 
 

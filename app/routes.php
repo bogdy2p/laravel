@@ -23,4 +23,14 @@ Route::get('admin', function(){
     
 })->before('auth');
 
+
+
+Route::get('register', 'UsersController@create');
+
 Route::resource('users','UsersController');
+
+Route::get('/', function(){
+    
+   return 'First loaded page'; 
+    
+});
