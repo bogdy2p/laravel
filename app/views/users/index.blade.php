@@ -30,6 +30,6 @@
 
 @section('footer')
     
-    
+     
   <?php echo 'This is echoed into the footer!'; ?>
 @stop
