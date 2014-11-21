@@ -36,8 +36,10 @@ class UsersController extends \BaseController {
     public function store() {
 
         $input = Input::all();
-        
         $this->user->fill($input);
+        // Add Password encryption
+        $unencrypted_password = Input::get('password');
+        $this->user->password = Hash::make($unencrypted_password);
         
         if (!$this->user->isValid()){
             return Redirect::back()->withInput()->withErrors($this->user->errors);
@@ -45,6 +47,8 @@ class UsersController extends \BaseController {
         
         //Add the ip logging of the pc that requested a new account.
         $this->user->creation_ip = Request::getClientIp();
+        
+        
         
         $test = $this->user->save();
         

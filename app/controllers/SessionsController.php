@@ -7,19 +7,18 @@ class SessionsController extends BaseController {
         if (Auth::check())
             return Redirect::to('/admin');
 
-
-
         return View::make('sessions.create');
     }
 
     public function store() {
 
-
         if (Auth::attempt(Input::only('email', 'password'))) {
             return Auth::user();
         }
-
-        return 'Failed';
+        
+        
+        
+        return Input::all();
     }
 
     public function destroy() {
