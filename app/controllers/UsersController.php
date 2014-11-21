@@ -55,8 +55,8 @@ class UsersController extends \BaseController {
      * @return Response
      */
     public function show($username) {
+        
         $user = $this->user->whereUsername($username)->first();
-
         return View::make('users.show', ['user' => $user]);
     }
 
@@ -66,9 +66,11 @@ class UsersController extends \BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function edit($id) {
-       
-        echo 'This is where you should call edit user view.';
+    public function edit($username) {
+        
+        $user = $this->user->whereUsername($username)->first();
+        return View::make('users.edit',['user' => $user]);
+        
 
     }
 

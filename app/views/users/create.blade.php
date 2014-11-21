@@ -32,6 +32,7 @@
 <div>
     {{ Form::label('pass_conf','Confirm Password: ') }}
     {{ Form::password('pass_conf') }}
+    {{ $errors->first('pass_conf')}}
 </div>
 <div>
     {{ Form::submit('Create User') }}

@@ -3,10 +3,28 @@
 @section('content')
 <h1> All Users</h1>
 
-    @foreach ($users as $user)
-    <li> {{ link_to("/users/{$user->username}", $user->username) }} </li>
     
-    @endforeach
+    <table>
+        <thead>
+        <th>Username</th>
+        <th>Editlink</th> 
+        <th>DeleteLink</th>
+        </thead>
+        <tbody>
+            
+            @foreach ($users as $user)
+            <tr>
+                 <td>{{ link_to("/users/{$user->username}", $user->username) }}  </td>
+                 <td>{{ link_to("/users/{$user->username}/edit", $user->username) }}    </td>
+                 <td>{{ $user->username }} DELETE   </td>
+            </tr>
+            @endforeach
+            
+        </tbody> 
+    </table>
+
+    
+    
     
 @stop
 
