@@ -2,6 +2,12 @@
 
 class UsersController extends \BaseController {
 
+    protected $user;
+    
+    public function __construct(User $user) {
+        
+        $this->user = $user;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -9,7 +15,7 @@ class UsersController extends \BaseController {
      */
     public function index() {
 
-        $users = User::all();
+        $users = $this->user->all();
         return View::make('users.index', ['users' => $users]);
     }
 
@@ -29,11 +35,15 @@ class UsersController extends \BaseController {
      */
     public function store() {
 
-        $user = new User;
-
-        $user->username = Input::get('username');
-        $user->password = Hash::make(Input::get('password'));
-        $user->save();
+        $input = Input::all();
+        
+        $this->user->fill($input);
+        
+        if (!$this->user->isValid()){
+            return Redirect::back()->withInput()->withErrors($this->user->errors);
+        }
+        
+        $this->user->save();
 
         return Redirect::route('users.index');
     }
@@ -45,7 +55,7 @@ class UsersController extends \BaseController {
      * @return Response
      */
     public function show($username) {
-        $user = User::whereUsername($username)->first();
+        $user = $this->user->whereUsername($username)->first();
 
         return View::make('users.show', ['user' => $user]);
     }
@@ -57,7 +67,9 @@ class UsersController extends \BaseController {
      * @return Response
      */
     public function edit($id) {
-        //
+       
+        echo 'This is where you should call edit user view.';
+
     }
 
     /**

@@ -8,6 +8,8 @@
 <div>
     {{ Form::label('email','Email: ') }}
     {{ Form::email('email') }}
+    {{ $errors->first('email')}}
+    
 </div>
 <div>
     {{ Form::label('firstname','First Name: ') }}
@@ -20,10 +22,12 @@
 <div>
     {{ Form::label('username','Username: ') }}
     {{ Form::text('username') }}
+    {{ $errors->first('username')}}
 </div>
 <div>
     {{ Form::label('password','Password:') }}
     {{ Form::password('password') }}
+    {{ $errors->first('password')}}
 </div>
 <div>
     {{ Form::label('pass_conf','Confirm Password: ') }}
