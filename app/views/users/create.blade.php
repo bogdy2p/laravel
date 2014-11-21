@@ -1,5 +1,5 @@
 @extends('templates.default')
-
+@include('templates/partials/site_menu_default')
 @section('content')
 
 <div class="login_form">

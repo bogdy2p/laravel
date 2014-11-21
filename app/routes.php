@@ -11,19 +11,12 @@
   |
  */
 
+
 Route::get('login', 'SessionsController@create');
 
 Route::get('logout', 'SessionsController@destroy');
 
 Route::resource('sessions', 'SessionsController');
-
-Route::get('admin', function(){
-    
-   return 'Admin page'; 
-    
-})->before('auth');
-
-
 
 Route::get('register', 'UsersController@create');
 
@@ -31,8 +24,9 @@ Route::resource('users','UsersController');
 
 Route::get('/', function(){
     
-   
-    return Redirect::to('login');
+    return Redirect::to('sessions');
    
     
 });
+
+// VIEW THIS ... .laracasts.com/series/laravel-from-scratch/episodes/15

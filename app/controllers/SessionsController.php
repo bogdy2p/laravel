@@ -2,12 +2,18 @@
 
 class SessionsController extends BaseController {
 
+    public function index(){
+        return Redirect::route('users.index');
+    }
+    
+    
     public function create() {
 
-        if (Auth::check())
-            return Redirect::to('/admin');
-
-        return View::make('sessions.create');
+        if (Auth::check()) {
+            return Redirect::route('sessions.store');
+        }
+        
+       return View::make('sessions.create');
     }
 
     public function store() {
@@ -23,12 +29,11 @@ class SessionsController extends BaseController {
             return Auth::user();
         }
 
-        return Redirect::to('login');
+        return Redirect::to('sessions.create');
     }
 
     public function destroy() {
         Auth::logout();
-
         return Redirect::route('sessions.create');
     }
 

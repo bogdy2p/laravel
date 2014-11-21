@@ -19,6 +19,6 @@
     
     <body>
         
-               @include('templates/partials/site_menu')
+               
         
                @yield('content') 
