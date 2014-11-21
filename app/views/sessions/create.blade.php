@@ -1,13 +1,8 @@
-<!doctype html>
-<html>
-    <head>
-        
-        <meta charset="utf-8">
-        
-    </head>
-    
-    <body>
-        
+@extends('templates.default')
+
+@section('content') 
+
+<div class="login_form">
         {{ Form::open(['route' => 'sessions.store']) }}
         
         <div>
@@ -23,18 +18,11 @@
         </div>
         
         <div>
-            
+            <br />
            {{ Form::submit('Login') }} 
             
         </div>
         
         {{ Form::close() }}
-        
-        
-    </body>
-
-
-
-</html>
-
-
+</div>
+@stop  

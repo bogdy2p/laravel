@@ -31,6 +31,8 @@ Route::resource('users','UsersController');
 
 Route::get('/', function(){
     
-   return 'First loaded page . This should load the webiste index and the menu to login'; 
+   
+    return Redirect::to('login');
+   
     
 });
