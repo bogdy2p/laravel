@@ -43,10 +43,11 @@ class UsersController extends \BaseController {
             return Redirect::back()->withInput()->withErrors($this->user->errors);
         }
         
+        //Add the ip logging of the pc that requested a new account.
+        $this->user->creation_ip = Request::getClientIp();
+        
         $test = $this->user->save();
-        dd($test);
-        die();
-
+        
         return Redirect::route('users.index');
     }
 
