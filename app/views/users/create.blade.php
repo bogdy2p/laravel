@@ -13,11 +13,11 @@
 </div>
 <div>
     {{ Form::label('firstname','First Name: ') }}
-    {{ Form::text('firstname') }}
+    {{ Form::text('first_name') }}
 </div>
 <div>
     {{ Form::label('lastname','Last Name: ') }}
-    {{ Form::text('lastname') }}
+    {{ Form::text('last_name') }}
 </div>
 <div>
     {{ Form::label('username','Username: ') }}
