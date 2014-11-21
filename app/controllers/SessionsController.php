@@ -12,18 +12,23 @@ class SessionsController extends BaseController {
 
     public function store() {
 
-        if (Auth::attempt(Input::only('email', 'password'))) {
+        $username = Input::get('user_mail');
+        $email = Input::get('user_mail');
+        $password = Input::get('password');
+
+        if (Auth::attempt(['username' => $username, 'password' => $password])) {
             return Auth::user();
         }
-        
-        
-        
-        return Input::all();
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            return Auth::user();
+        }
+
+        return Redirect::to('login');
     }
 
     public function destroy() {
         Auth::logout();
-        
+
         return Redirect::route('sessions.create');
     }
 

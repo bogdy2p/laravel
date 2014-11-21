@@ -6,9 +6,9 @@
         {{ Form::open(['route' => 'sessions.store']) }}
         
         <div>
-        {{ Form::label('email','Email:') }}
+        {{ Form::label('user_mail','Email/Username:') }}
         
-        {{ Form::email('email') }}
+        {{ Form::text('user_mail') }}
         </div>
         
         <div>
