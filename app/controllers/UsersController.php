@@ -43,7 +43,9 @@ class UsersController extends \BaseController {
             return Redirect::back()->withInput()->withErrors($this->user->errors);
         }
         
-        $this->user->save();
+        $test = $this->user->save();
+        dd($test);
+        die();
 
         return Redirect::route('users.index');
     }
