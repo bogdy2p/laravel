@@ -9,15 +9,20 @@
         {{ Form::label('user_mail','Email/Username:') }}
         
         {{ Form::text('user_mail') }}
+        
+        
         </div>
         
         <div>
         {{ Form::label('password','Password:') }}
         
         {{ Form::password('password') }}
+        
+        
         </div>
         
         <div>
+            {{ $errors->first()}}
             <br />
            {{ Form::submit('Login') }} 
             

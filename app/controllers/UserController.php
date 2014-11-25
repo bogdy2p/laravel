@@ -9,9 +9,6 @@ class UserController extends \BaseController {
         $this->user = $user;
     }
     
-    
-   
-    
     /**
      * Display a listing of the resource.
      *
@@ -81,9 +78,7 @@ class UserController extends \BaseController {
         $user = $this->user->whereUsername($username)->first();
         return View::make('user.edit',['user' => $user]);
         
-
     }
-
     /**
      * Update the specified resource in storage.
      *
@@ -106,7 +101,8 @@ class UserController extends \BaseController {
      * @return Response
      */
     public function destroy($id) {
-        //
+        $user = User::find($id);
+        $user->delete();
     }
 
 }

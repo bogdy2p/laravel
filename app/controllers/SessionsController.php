@@ -2,16 +2,9 @@
 
 class SessionsController extends BaseController {
 
-    public function index(){
-        return Redirect::route('users.index');
-    }
-    
     public function create() {
-
         if (Auth::check()) 
-            return Redirect::to('/');
-        
-        
+            return Redirect::to('/');   
        return View::make('sessions.create');
     }
 
@@ -30,8 +23,8 @@ class SessionsController extends BaseController {
             Auth::user();
             return Redirect::to('/');
         }
-
-        return Redirect::to('login');
+        $errors = ['Your input was not correct..'];
+        return Redirect::to('login')->withErrors($errors);
     }
 
     public function destroy() {
@@ -39,4 +32,6 @@ class SessionsController extends BaseController {
         return View::make('site.index');
     }
 
+    
+    
 }
