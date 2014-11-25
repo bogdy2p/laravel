@@ -1,5 +1,5 @@
 @extends('templates.default')
-@include('templates/partials/site_menu')
+
 @section('content')
 
 <div class="login_form">
@@ -48,6 +48,5 @@
 @stop
 
 @section('footer')
-<?php echo '<br /><br /><br />' ?>
-<?php echo 'This is echoed into the footer!'; ?>
+                     {{' ECHOED INTO FOOTER'}}
 @stop

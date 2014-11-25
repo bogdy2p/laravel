@@ -14,13 +14,17 @@
 
 Route::get('login', 'SessionsController@create');
 
-Route::get('logout', 'SessionsController@destroy');
-
 Route::resource('sessions', 'SessionsController');
 
 Route::get('register', 'UsersController@create');
 
-Route::resource('users','UsersController');
-
 Route::get('/', 'SiteController@index');
-// VIEW THIS ... .laracasts.com/series/laravel-from-scratch/episodes/15
+
+
+Route::group(array('before' => 'auth'), function(){
+    
+    Route::get('logout', 'SessionsController@destroy');
+    
+    Route::resource('users','UsersController');
+    
+});

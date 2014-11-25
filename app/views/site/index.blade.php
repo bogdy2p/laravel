@@ -1,6 +1,5 @@
 @extends('templates.default')
 
-@include('templates/partials/site_menu')
 
 @section('content')
 
