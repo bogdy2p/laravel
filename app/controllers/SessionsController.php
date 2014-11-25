@@ -22,10 +22,13 @@ class SessionsController extends BaseController {
         $password = Input::get('password');
 
         if (Auth::attempt(['username' => $username, 'password' => $password])) {
-            return Auth::user();
+            Auth::user();
+            return Redirect::to('/');
+            
         }
         if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            return Auth::user();
+            Auth::user();
+            return Redirect::to('/');
         }
 
         return Redirect::to('login');
