@@ -24,7 +24,9 @@ Route::resource('users','UsersController');
 
 Route::get('/', function(){
     
-    return Redirect::to('sessions');
+    return "Welcome to the website.";
+    
+    
    
     
 });
