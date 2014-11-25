@@ -28,6 +28,6 @@ Route::group(array('before' => 'auth'), function(){
 });
 
 Route::get('admin',array('before' => ['auth','level'], 'uses' => 'AdminController@showAdminMenu'));
-Route::get('user',array('before' => ['auth'],'uses' => 'UserController@index'));
-Route::get('user/{user}/edit',array('before' => ['auth'],'uses' => 'UserController@edit'));
-Route::get('user/{user}/delete',array('before' => ['auth','level'],'uses' => 'UserController@delete'));
+//Route::get('user',array('before' => ['auth'],'uses' => 'UserController@index'));
+//Route::get('user/{user}/edit',array('before' => ['auth'],'uses' => 'UserController@edit'));
+//Route::get('user/{user}/delete',array('before' => ['auth','level'],'uses' => 'UserController@delete'));

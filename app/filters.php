@@ -55,15 +55,6 @@ Route::filter('level', function() {
     }
 });
 
-Route::filter('is_admin', function() {
-    $level = Auth::user()->account_level;
-    if ($level === 3) {
-        return true;
-    } else {
-        return true;
-    }
-});
-
 /*
   |--------------------------------------------------------------------------
   | Guest Filter

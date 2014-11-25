@@ -6,6 +6,7 @@ class UserController extends \BaseController {
     
     public function __construct(User $user) {
         
+        $this->beforeFilter('auth');
         $this->user = $user;
     }
     
@@ -75,9 +76,12 @@ class UserController extends \BaseController {
      */
     public function edit($username) {
         
-        $user = $this->user->whereUsername($username)->first();
-        return View::make('user.edit',['user' => $user]);
-        
+        $level = Auth::user()->account_level;
+        if($level == 3){
+             $user = $this->user->whereUsername($username)->first();
+             return View::make('user.edit',['user' => $user]);
+        }
+        return Redirect::to('/');
     }
     /**
      * Update the specified resource in storage.
@@ -100,8 +104,7 @@ class UserController extends \BaseController {
      * @param  int  $id
      * @return Response
      */
-    public function destroy($id) {
-        $user = User::find($id);
+    public function destroy(User $user) {
         $user->delete();
     }
 
