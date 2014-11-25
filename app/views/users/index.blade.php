@@ -1,5 +1,5 @@
 @extends('templates.default')
-
+@include('templates/partials/site_menu')
 @section('content')
 <h1> All Users</h1>
 

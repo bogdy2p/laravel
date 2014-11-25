@@ -13,7 +13,7 @@
 
         </div>
 
-
+        @if(Auth::check())
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
 
@@ -49,9 +49,30 @@
                 <li>
                     <a href="">Signed in as 'username' </a>
                 </li>
+                 <li class="{{ (strpos(URL::current(), URL::to('logout'))!== false) ? 'active': ''}}">{{HTML::link('logout','Logout')}}</li>
             </ul>
-
-
+        @else
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="<?php echo URL::to('/login'); ?>">Login</a>
+                </li>    
+                <li>    
+                    <a href="<?php echo URL::to('/register'); ?>">Register</a>           
+                </li>
+            </ul>
+        </div>
+        
+        @endif   
         </div>
     </div>
-</nav>
+</nav> 
+
+<!--<li class="{{(strcmp(URL::full(),URL::to('/')) == 0) ? 'active' : ''}}"><a href="{{URL::to('/')}}">Home</a></li>
+    <li class="{{ (strpos(URL::current(), URL::to('admin/dash-board'))!== false) ? 'active' : ''}}">{{HTML::link('admin/dash-board','Dashboard')}}</li>
+    <li class="{{ (strpos(URL::current(), URL::to('logout'))!== false) ? 'active': ''}}">{{HTML::link('logout','Logout')}}</li>
+    <li class="{{ (strpos(URL::current(), URL::to('login'))!== false) ? 'active': ''}}">{{HTML::link('login','Login')}}></li>-->
+ 
