@@ -23,12 +23,10 @@ Route::get('/', 'SiteController@index');
 
 Route::group(array('before' => 'auth'), function(){
     
-    
-    
     Route::get('logout', 'SessionsController@destroy'); 
     
     Route::resource('user','UserController');
     
-    Route::get('admin',array('before' => 'level', 'uses' => 'UserController@showAdminMenu'));
-    
 });
+
+Route::get('admin',array('before' => ['auth','level'], 'uses' => 'AdminController@showAdminMenu'));

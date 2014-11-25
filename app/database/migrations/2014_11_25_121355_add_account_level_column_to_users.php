@@ -12,7 +12,7 @@ class AddAccountLevelColumnToUsers extends Migration {
      */
     public function up() {
         Schema::table('users', function(Blueprint $table) {
-            $table->string('account_level', 1);
+            $table->integer('account_level');
         });
     }
 

@@ -33,17 +33,20 @@
                                     <li><a href="">View all existing posts!?!</a></li>
                                 </ul>
                             </li>
-                            <li class="dropdown">   
-                                <a class="dropdown-toggle" data-toggle="dropdown">Administrate</a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="">Administrate Users</a></li>
-                                    <li><a href="">Administrate Groups</a></li>
-                                    <li><a href="">View Tables</a></li>
-                                    <li><a href="">Admin Detail Types</a></li>
-                                </ul>
-                            </li>
+                            <!-- IF USER IS ADMIN DISPLAY ADMIN -->
+                                            @if(Auth::user()->account_level == 3)
+                                            <li class="dropdown">   
+                                                <a class="dropdown-toggle" data-toggle="dropdown">Administrate</a>
+                                                <ul class="dropdown-menu" role="menu">
+                                                    <li><a href="">Administrate Users</a></li>
+                                                    <li><a href="">Administrate Groups</a></li>
+                                                    <li><a href="">View Tables</a></li>
+                                                    <li><a href="">Admin Detail Types</a></li>
+                                                </ul>
+                                            </li>
+                                            @endif
+                            <!-- END IF USER IS ADMIN DISPLAY -->
                         </ul>
-
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 
@@ -62,18 +65,10 @@
                                 </li>    
                                 <li>  
                                     <a href="<?php echo URL::to('/register'); ?>">Register</a> 
-
-
                                 </li>
                             </ul>
                         </div>
-
                         @endif   
         </div>
     </div>
-</nav> 
-
-<!--<li class="{{(strcmp(URL::full(),URL::to('/')) == 0) ? 'active' : ''}}"><a href="{{URL::to('/')}}">Home</a></li>
-    <li class="{{ (strpos(URL::current(), URL::to('admin/dash-board'))!== false) ? 'active' : ''}}">{{HTML::link('admin/dash-board','Dashboard')}}</li>
-    <li class="{{ (strpos(URL::current(), URL::to('logout'))!== false) ? 'active': ''}}">{{HTML::link('logout','Logout')}}</li>
-    <li class="{{ (strpos(URL::current(), URL::to('login'))!== false) ? 'active': ''}}">{{HTML::link('login','Login')}}></li>-->
+</nav>

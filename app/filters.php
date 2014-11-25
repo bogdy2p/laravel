@@ -54,15 +54,13 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
-
-Route::filter('level', function(){
-    
-    dd(Auth::user()->id)
-;    
-   if(Input::get('level') == 3){
-       return Redirect::to('adminz');
+Route::filter('level', function(){    
+   $level = Auth::user()->account_level; 
+   if($level == 3){
+       return View::make('admin.index');
+   }else{
+       return Redirect::to('/');
    }
-    
 });
 
 /*

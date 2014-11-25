@@ -10,16 +10,7 @@ class UserController extends \BaseController {
     }
     
     
-    public function showAdminMenu(){
-        
-        
-        return View::make('admin.index');
-        
-        
-    }
-    
-    
-    
+   
     
     /**
      * Display a listing of the resource.
