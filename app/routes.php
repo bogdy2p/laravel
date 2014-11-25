@@ -22,13 +22,5 @@ Route::get('register', 'UsersController@create');
 
 Route::resource('users','UsersController');
 
-Route::get('/', function(){
-    
-    return "Welcome to the website.";
-    
-    
-   
-    
-});
-
+Route::get('/', 'SiteController@index');
 // VIEW THIS ... .laracasts.com/series/laravel-from-scratch/episodes/15
