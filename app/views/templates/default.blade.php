@@ -17,22 +17,17 @@
     </head>
     
     <body>
+        <div class="container">
+        
         @include('templates.partials.site_menu')
            
-        
         @yield('content') 
 
 
-
-
-
-
-          <br /><br /><br /><br />
+          <br /><br />
         @yield('footer')
-        
-        
-     
-        
+  
+       </div>    
         
     </body>
 </html>

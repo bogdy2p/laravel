@@ -1,5 +1,5 @@
 <nav class="navbar navbar-default" role="navigation">
-    <div class="container">
+    <div class="container-fluid">
         <div class="navbar-header">
 
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -58,10 +58,11 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="<?php echo URL::to('/login'); ?>">Login</a>
+                    <a href="<?php echo URL::to('/register'); ?>">Register</a>   
                 </li>    
                 <li>    
-                    <a href="<?php echo URL::to('/register'); ?>">Register</a>           
+                     <a href="<?php echo URL::to('/login'); ?>">Login</a>
+                    
                 </li>
             </ul>
         </div>
