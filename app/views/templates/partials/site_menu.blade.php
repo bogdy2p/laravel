@@ -42,7 +42,6 @@
                                     <li><a href="">Admin Detail Types</a></li>
                                 </ul>
                             </li>
-
                         </ul>
 
                         <ul class="nav navbar-nav navbar-right">

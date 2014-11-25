@@ -25,6 +25,7 @@ class UsersController extends \BaseController {
      * @return Response
      */
     public function create() {
+        //The form of registration
         return View::make('users.create');
     }
 
