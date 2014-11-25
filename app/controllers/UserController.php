@@ -1,6 +1,6 @@
 <?php
 
-class UsersController extends \BaseController {
+class UserController extends \BaseController {
 
     protected $user;
     
@@ -8,6 +8,19 @@ class UsersController extends \BaseController {
         
         $this->user = $user;
     }
+    
+    
+    public function showAdminMenu(){
+        
+        
+        return View::make('admin.index');
+        
+        
+    }
+    
+    
+    
+    
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +29,7 @@ class UsersController extends \BaseController {
     public function index() {
 
         $users = $this->user->all();
-        return View::make('users.index', ['users' => $users]);
+        return View::make('user.index', ['users' => $users]);
     }
 
     /**
@@ -26,7 +39,7 @@ class UsersController extends \BaseController {
      */
     public function create() {
         //The form of registration
-        return View::make('users.create');
+        return View::make('user.create');
     }
 
     /**
@@ -51,7 +64,7 @@ class UsersController extends \BaseController {
         
         $test = $this->user->save();
         
-        return Redirect::route('users.index');
+        return Redirect::route('user.index');
     }
 
     /**
@@ -63,7 +76,7 @@ class UsersController extends \BaseController {
     public function show($username) {
         
         $user = $this->user->whereUsername($username)->first();
-        return View::make('users.show', ['user' => $user]);
+        return View::make('user.show', ['user' => $user]);
     }
 
     /**
@@ -75,7 +88,7 @@ class UsersController extends \BaseController {
     public function edit($username) {
         
         $user = $this->user->whereUsername($username)->first();
-        return View::make('users.edit',['user' => $user]);
+        return View::make('user.edit',['user' => $user]);
         
 
     }
@@ -87,7 +100,12 @@ class UsersController extends \BaseController {
      * @return Response
      */
     public function update($id) {
-        //
+        
+        $user = User::find($id);
+        $user->first_name = Input::get("first_name");
+        $user->last_name = Input::get("last_name");
+        $user->save();
+        return Redirect::route('user.index');
     }
 
     /**

@@ -16,15 +16,19 @@ Route::get('login', 'SessionsController@create');
 
 Route::resource('sessions', 'SessionsController');
 
-Route::get('register', 'UsersController@create');
+Route::get('register', 'UserController@create');
 
 Route::get('/', 'SiteController@index');
 
 
 Route::group(array('before' => 'auth'), function(){
     
-    Route::get('logout', 'SessionsController@destroy');
     
-    Route::resource('users','UsersController');
+    
+    Route::get('logout', 'SessionsController@destroy'); 
+    
+    Route::resource('user','UserController');
+    
+    Route::get('admin',array('before' => 'level', 'uses' => 'UserController@showAdminMenu'));
     
 });

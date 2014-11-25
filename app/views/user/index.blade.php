@@ -13,8 +13,8 @@
             
             @foreach ($users as $user)
             <tr>
-                 <td>{{ link_to("/users/{$user->username}", $user->username) }}  </td>
-                 <td>{{ link_to("/users/{$user->username}/edit", $user->username) }}    </td>
+                 <td>{{ link_to("/user/{$user->username}", $user->username) }}  </td>
+                 <td>{{ link_to("/user/{$user->username}/edit", $user->username) }}    </td>
                  <td>{{ $user->username }} DELETE   </td>
             </tr>
             @endforeach

@@ -47,7 +47,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li>
                                 
-                                <a href="/users/{{Auth::user()->username}}/edit">Welcome ,  {{ Auth::user()->username }} ! </a>
+                                <a href="/user/{{Auth::user()->username}}/edit">Welcome ,  {{ Auth::user()->username }} ! </a>
                             </li>
                             <li class="{{ (strpos(URL::current(), URL::to('logout'))!== false) ? 'active': ''}}">{{HTML::link('logout','Logout')}}</li>
                         </ul>

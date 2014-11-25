@@ -54,6 +54,17 @@ Route::filter('auth.basic', function()
 	return Auth::basic();
 });
 
+
+Route::filter('level', function(){
+    
+    dd(Auth::user()->id)
+;    
+   if(Input::get('level') == 3){
+       return Redirect::to('adminz');
+   }
+    
+});
+
 /*
 |--------------------------------------------------------------------------
 | Guest Filter

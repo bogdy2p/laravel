@@ -2,7 +2,7 @@
 @section('content')
 <div class="login_form">
 <h3>Register Account</h3>
-    {{ Form::open(['route' => 'users.store']) }}
+    {{ Form::open(['route' => 'user.store']) }}
 <div>
     {{ Form::label('email','Email: ') }}
     <br />
