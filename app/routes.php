@@ -16,8 +16,8 @@ Route::get('/', 'SiteController@index');
 Route::get('register', 'UsersController@create');
 Route::get('login', 'SessionsController@create');
 Route::resource('sessions', 'SessionsController');
-Route::resource('user','UsersController');
-
+Route::resource('users','UsersController');
+Route::resource('posts','PostsController');
 
 Route::group(array('before' => 'auth'), function(){
     Route::get('logout', 'SessionsController@destroy'); 
