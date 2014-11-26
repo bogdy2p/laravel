@@ -13,14 +13,10 @@
 Route::get('/', 'SiteController@index');
 
 
-Route::get('register', 'UserController@create');
+Route::get('register', 'UsersController@create');
 Route::get('login', 'SessionsController@create');
 Route::resource('sessions', 'SessionsController');
-Route::resource('user','UserController');
-
-
-
-
+Route::resource('user','UsersController');
 
 
 Route::group(array('before' => 'auth'), function(){

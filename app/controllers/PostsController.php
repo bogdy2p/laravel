@@ -1,12 +1,11 @@
 <?php
 
 
-class PostController extends BaseController {
+class PostsController extends BaseController {
     
 
     public function index() {
-        $posts = Post::orderBy('id', 'desc');
-        return View::make('post.index');
+        
     }
 
     public function show(Post $post) {

@@ -1,12 +1,12 @@
 <?php
 
-class UserController extends \BaseController {
+class UsersController extends \BaseController {
 
     protected $user;
     
     public function __construct(User $user) {
         
-        $this->beforeFilter('auth');
+        //$this->beforeFilter('auth');
         $this->user = $user;
     }
     
